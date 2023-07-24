@@ -19,6 +19,9 @@ export default defineConfig({
     nav,
     sidebar,
     socialLinks,
+    search: {
+      provider: 'local'
+    },
     outline: 'deep',
     outlineTitle: '章节导航',
     docFooter: {
