@@ -3,7 +3,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "T-Rex",
-  description: "一个VitePress网站",
+  description: "一个测试开发工程的学习记录博客",
   markdown: {
     // 代码块风格
     // theme:'github-light',
@@ -22,6 +22,7 @@ export default defineConfig({
     sidebar: {
       '/guide/': { base: '/guide/', items: sidebarGuide() },
       '/lib/': { base: '/lib/', items: sidebarPython() },
+      '/git/': { base: '/git/', items: sidebarGit() },
     },
     search: {
       provider: 'local',
@@ -69,9 +70,16 @@ function nav(): DefaultTheme.NavItem[] {
       link: '/',
     },
     {
-      text: 'Python',
-      link: '/lib/Faker',
+      text: 'Git',
+      link: '/git/init',
+      activeMatch: '/git/'
     },
+    {
+      text: 'Python',
+      items: [
+        { text: '第三方库', link: '/lib/Faker' },
+      ]
+    }
   ]
 }
 
@@ -92,12 +100,30 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
 function sidebarPython(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '第三方库使用',
+      text: '简介',
+      link: '/简介',
+    },
+    {
+      text: '第三方库',
       collapsed: false,
       items: [
         { text: 'Faker', link: 'Faker' },
         { text: 'PrettyErrors', link: 'PrettyErrors' },
         { text: 'Schedule', link: 'Schedule' }
+      ]
+    },
+  ]
+}
+
+function sidebarGit(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '参考',
+      items: [
+        { text: '说明', link: 'gitcommand' },
+        { text: '初始化', link: 'init' },
+        { text: '分支', link: 'branch' },
+        { text: '提交', link: 'commit' }
       ]
     },
   ]
