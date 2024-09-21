@@ -19,10 +19,11 @@ hero:
     - theme: brand
       # 按钮文字
       text: 快速开始
-      link: /markdown-examples
-    - theme: alt
-      text: vitepress官方
-      link: https://vitepress.dev/
+      link: /guide/getting-started
+#      
+#    - theme: alt
+#      text: vitepress官方
+#      link: https://vitepress.dev/
 
 # 特色
 features:

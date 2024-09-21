@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type DefaultTheme } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -17,10 +17,11 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     siteTitle: 'T-Rex',
     logo: '/T-Rex.png',
-    nav: [
-      { text: '首页', link: '/' },
-      { text: '样例', link: '/markdown-examples' }
-    ],
+    nav: nav(),
+    sidebar: {
+      '/guide/': { base: '/guide/', items: sidebarGuide() },
+      '/lib/': { base: '/lib/', items: sidebarPython() },
+    },
     search: {
       provider: 'local',
       // options: {
@@ -29,15 +30,27 @@ export default defineConfig({
       //   indexName: 'tachiyomi',
       // },
     },
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    outline: {
+      label: '页面导航'
+    },
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium'
       }
-    ],
+    },
+
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式',
+
     footer: {
       message: 'Released under the MIT License.',
       copyright: `Copyright © ${new Date().getFullYear()} wiesZheng`,
@@ -47,3 +60,44 @@ export default defineConfig({
     ]
   }
 })
+
+function nav(): DefaultTheme.NavItem[] {
+  return [
+    {
+      text: '首页',
+      link: '/',
+    },
+    {
+      text: 'Python',
+      link: '/lib/Faker',
+    },
+  ]
+}
+
+function sidebarGuide(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '简介',
+      collapsed: false,
+      items: [
+        { text: '快速开始', link: 'getting-started' },
+        { text: '路由', link: 'routing' },
+        { text: '部署', link: 'deploy' }
+      ]
+    },
+  ]
+}
+
+function sidebarPython(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '第三方库使用',
+      collapsed: false,
+      items: [
+        { text: 'Faker', link: 'Faker' },
+        { text: 'PrettyErrors', link: 'PrettyErrors' },
+        { text: 'Schedule', link: 'Schedule' }
+      ]
+    },
+  ]
+}
