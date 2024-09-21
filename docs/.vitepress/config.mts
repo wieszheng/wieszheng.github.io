@@ -10,6 +10,7 @@ export default defineConfig({
     // 代码块显示行数
     lineNumbers: true,
   },
+  ignoreDeadLinks: true,
   head: [
     ['link', { rel: 'icon', type: "image/png" ,href: '/T-Rex.png' }]
   ],
