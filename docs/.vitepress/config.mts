@@ -5,9 +5,6 @@ export default defineConfig({
   title: "T-Rex",
   description: "一个测试开发工程的学习记录博客",
   markdown: {
-    // 代码块风格
-    // theme:'github-light',
-    // 代码块显示行数
     lineNumbers: true,
   },
   ignoreDeadLinks: true,
@@ -15,29 +12,17 @@ export default defineConfig({
     ['link', { rel: 'icon', type: "image/png" ,href: '/T-Rex.png' }]
   ],
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     siteTitle: 'T-Rex',
     logo: '/T-Rex.png',
-    nav: nav(),
-    sidebar: {
-      '/guide/': { base: '/guide/', items: sidebarGuide() },
-      '/lib/': { base: '/lib/', items: sidebarPython() },
-      '/git/': { base: '/git/', items: sidebarGit() },
-    },
     search: {
-      provider: 'local',
-      // options: {
-      //   appId: '2C8EHFTRW7',
-      //   apiKey: 'ee38c6e04295e4d206399ab59a58ea9a',
-      //   indexName: 'tachiyomi',
-      // },
+      provider: 'local'
     },
     docFooter: {
       prev: '上一页',
       next: '下一页'
     },
     outline: {
-      label: '页面导航'
+      label: '文章目录'
     },
     lastUpdated: {
       text: '最后更新于',
@@ -46,7 +31,13 @@ export default defineConfig({
         timeStyle: 'medium'
       }
     },
-
+    // https://vitepress.dev/reference/default-theme-config
+    nav: nav(),
+    sidebar: {
+      '/guide/': { base: '/guide/', items: sidebarGuide() },
+      '/lib/': { base: '/lib/', items: sidebarPython() },
+      '/git/': { base: '/git/', items: sidebarGit() },
+    },
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
     darkModeSwitchLabel: '主题',
@@ -71,13 +62,13 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: 'Git',
-      link: '/git/init',
+      link: '/git/gitCommand',
       activeMatch: '/git/'
     },
     {
       text: 'Python',
       items: [
-        { text: '第三方库', link: '/lib/Faker' },
+        { text: '第三方库', link: '/lib/explain', activeMatch: '/lib/'},
       ]
     }
   ]
@@ -101,7 +92,7 @@ function sidebarPython(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: '简介',
-      link: '/简介',
+      link: '/explain',
     },
     {
       text: '第三方库',
@@ -120,7 +111,7 @@ function sidebarGit(): DefaultTheme.SidebarItem[] {
     {
       text: '参考',
       items: [
-        { text: '说明', link: 'gitcommand' },
+        { text: '说明', link: 'gitCommand' },
         { text: '初始化', link: 'init' },
         { text: '分支', link: 'branch' },
         { text: '提交', link: 'commit' }
