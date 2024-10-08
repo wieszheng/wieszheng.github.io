@@ -44,6 +44,10 @@ features:
     details: 个人在开发项目中所遇到的技术难点,以及解决方案...
 ---
 
+> [!IMPORTANT]
+>
+> 欢迎添加微信群进行沟通~ 💗，在微信群中能够更加实时高效的沟通！！！
+
 <script setup lang="ts">
   import { onMounted } from 'vue'
   import { fetchVersion } from '.vitepress/theme/fetchVersion'

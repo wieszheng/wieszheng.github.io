@@ -3,9 +3,13 @@
     "vitepress": "^1.3.4"
   },
   "scripts": {
-    "deploy":"bash deploy.sh",
+    "deploy": "bash deploy.sh",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.3",
+    "markdown-it-mathjax3": "^4.3.2"
   }
 }
