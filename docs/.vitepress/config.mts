@@ -143,7 +143,8 @@ function sidebarPython(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Faker', link: 'Faker' },
         { text: 'PrettyErrors', link: 'PrettyErrors' },
-        { text: 'Schedule', link: 'Schedule' }
+        { text: 'Schedule', link: 'Schedule' },
+        { text: 'Gevent', link: 'gevent' }
       ]
     },
   ]
