@@ -73,6 +73,7 @@ export default defineConfig({
       '/guide/': { base: '/guide/', items: sidebarGuide() },
       '/lib/': { base: '/lib/', items: sidebarPython() },
       '/git/': { base: '/git/', items: sidebarGit() },
+      '/docker/': { base: '/docker/', items: sidebarDocker() },
     },
     lastUpdatedText: '最后更新于',
     returnToTopLabel: '回到顶部',
@@ -107,6 +108,11 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Git',
       link: '/git/gitCommand',
       activeMatch: '/git/'
+    },
+    {
+      text: 'Docker',
+      link: '/docker/',
+      activeMatch: '/docker/'
     },
     {
       text: 'Python',
@@ -161,5 +167,10 @@ function sidebarGit(): DefaultTheme.SidebarItem[] {
         { text: '提交', link: 'commit' }
       ]
     },
+  ]
+}
+
+function sidebarDocker(): DefaultTheme.SidebarItem[] {
+  return [
   ]
 }
