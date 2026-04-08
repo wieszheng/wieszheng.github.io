@@ -4,6 +4,7 @@ on:
   push:
     branches: [master]
 
+  # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
 
 permissions:
@@ -12,12 +13,14 @@ permissions:
   id-token: write
 
 
+# 只允许同时进行一次部署，跳过正在运行和最新队列之间的运行队列
+# 但是，不要取消正在进行的运行，因为我们希望允许这些生产部署完成
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  # Build job
+  # 构建工作
   build:
     runs-on: ubuntu-latest
     steps:
@@ -25,33 +28,31 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
-      # - uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消注释
-      # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: npm # 或 pnpm / yarn
+          node-version: 22
+          cache: yarn # 设置缓存
       - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Install dependencies
-        run: npm ci # 或 pnpm install / yarn install / bun install
-      - name: Build with VitePress
-        run: npm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        uses: actions/configure-pages@v4  # 在工作流程自动配置GithubPages
+      - name: Install dependencies  # 安装依赖
+        run: yarn
+      - name: Build with VitePress # 打包项目
+        run: yarn run docs:build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3  # 上传构建产物
         with:
-          path: docs/.vitepress/dist
+          path: docs/dist # 指定上传的路径，当前是根目录，如果是docs需要加docs/的前缀
 
-  # Deployment job
+  # 部署工作
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
+      url: ${{ steps.deployment.outputs.page_url }}  # 从后续的输出中获取部署后的页面URL
+    needs: build # 在build后面完成
+    runs-on: ubuntu-latest # 运行在最新版本的ubuntu系统上
     name: Deploy
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        id: deployment # 指定id
+        uses: actions/deploy-pages@v4 # 将之前的构建产物部署到github pages中

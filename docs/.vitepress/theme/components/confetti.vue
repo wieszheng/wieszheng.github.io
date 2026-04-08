@@ -1,14 +1,15 @@
-<template></template>
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import confetti from "canvas-confetti";
+import confetti from 'canvas-confetti'
+import {inBrowser} from 'vitepress';
 
-onMounted(() => (
-   /* 纸屑 */
+if (inBrowser) {
+
+  /* 纸屑 */
   confetti({
     particleCount: 100,
     spread: 170,
-    origin: { y: 0.6 },
+    origin: {y: 0.6},
   })
-));
+
+}
 </script>
