@@ -5,6 +5,21 @@ import {devDependencies} from '../../../package.json'
 export const nav: DefaultTheme.Config['nav'] = [
   // {text: '首页', link: '/'},
   {
+    text: 'AI',
+    items: [
+      {
+        text: 'LangChain Agent',
+        items: [
+          {text: '开发指南', link: '/ai/README'},
+          {text: '核心概念', link: '/ai/01-核心概念'},
+          {text: '快速入门', link: '/ai/04-快速入门'},
+          {text: '工具开发', link: '/ai/05-工具开发'},
+          {text: 'LangGraph 进阶', link: '/ai/07-LangGraph进阶'},
+        ]
+      },
+    ]
+  },
+  {
     text: 'Python',
     items: [
       {
