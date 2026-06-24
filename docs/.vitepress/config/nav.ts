@@ -17,8 +17,30 @@ export const nav: DefaultTheme.Config['nav'] = [
           {text: 'LangGraph 进阶', link: '/ai/07-LangGraph进阶'},
         ]
       },
+      {
+        text: 'AI 测试',
+        items: [
+          {text: '学习指南', link: '/ai/testing/README'},
+          {text: 'Prompt Engineering', link: '/ai/testing/prompt-engineering'},
+          {text: 'LLM 评测体系', link: '/ai/testing/llm-evaluation'},
+          {text: 'RAG 测试', link: '/ai/testing/rag-testing'},
+          {text: 'Agent 测试', link: '/ai/testing/agent-testing'},
+          {text: '实践项目', link: '/ai/testing/practice-projects'},
+        ]
+      },
+      {
+        text: '生图提示词',
+        items: [
+          {text: '信息图模板', link: '/ai/testing/image-prompts/infographic-template'},
+          {text: '示例：职场PUA', link: '/ai/testing/image-prompts/workplace-pua-example'},
+          {text: '示例：独居生活', link: '/ai/testing/image-prompts/solo-living-example'},
+          {text: '多页策划系统', link: '/ai/testing/image-prompts/multi-page-planning'},
+          {text: '旅游手绘风格', link: '/ai/testing/image-prompts/travel-illustration'},
+        ]
+      },
     ]
   },
+
   {
     text: 'Python',
     items: [

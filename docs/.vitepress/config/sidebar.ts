@@ -2,6 +2,39 @@
 import type {DefaultTheme} from 'vitepress'
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
+  '/ai/testing/image-prompts/': {
+    base: '/ai/testing/image-prompts/',
+    items: [
+      {
+        text: '生图提示词',
+        collapsed: false,
+        items: [
+          {text: '信息图模板', link: 'infographic-template'},
+          {text: '示例：职场PUA', link: 'workplace-pua-example'},
+          {text: '示例：独居生活', link: 'solo-living-example'},
+          {text: '多页策划系统', link: 'multi-page-planning'},
+          {text: '旅游手绘风格', link: 'travel-illustration'},
+        ]
+      },
+    ]
+  },
+  '/ai/testing/': {
+    base: '/ai/testing/',
+    items: [
+      {
+        text: 'AI 测试开发',
+        collapsed: false,
+        items: [
+          {text: '学习指南', link: 'README'},
+          {text: 'Prompt Engineering', link: 'prompt-engineering'},
+          {text: 'LLM 评测体系', link: 'llm-evaluation'},
+          {text: 'RAG 测试详解', link: 'rag-testing'},
+          {text: 'Agent 测试详解', link: 'agent-testing'},
+          {text: '实践项目指南', link: 'practice-projects'},
+        ]
+      },
+    ]
+  },
   '/ai/': {
     base: '/ai/',
     items: [
